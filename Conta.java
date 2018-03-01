@@ -1,58 +1,38 @@
-class Conta {
-	int numero;
-	Cliente titular;
+
+public class Conta {
 	private double saldo;
-	private double limite;
+	private String nome;
+	private int agencia;
 
-	private static int numeroIncremental = 1;
-
-	public static int x(){
-		return 2*numeroIncremental;
+	public Conta(String nome, int agencia, double saldo) {
+		this.nome = nome;
+		this.agencia = agencia;
+		this.saldo = saldo;
 	}
 
-	public Conta(int numero, double limite){
-		/*this.numero = numero;
-		this.limite = limite;*/
-		this(numero, limite, 0);
+	public String getNome() {
+		return nome;
 	}
 
-	public Conta(int numero, double limite, double saldoInicial){
-		this.numero = numero;
-		this.limite = limite;
-		this.saldo = saldoInicial;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public Conta(){
-		this.numero = numeroIncremental;
-		numeroIncremental++;
+	public int getAgencia() {
+		return agencia;
 	}
 
-	public void saca(double valor) {
-		if(valor > this.saldo + this.limite) {
-			System.out.println("Saque invalido");
-		} else {
-			this.saldo -= valor;
-		}
-	}
-
-	public void deposita(double valor) {
-		this.saldo += valor;
+	public void setAgencia(int agencia) {
+		this.agencia = agencia;
 	}
 
 	public double getSaldo() {
-		return this.saldo;
+		return saldo;
 	}
 
-	public void setLimite(double novoLimite) {
-		this.limite = novoLimite; 
+	public void imprime() {
+		System.out.println(nome);
+		System.out.println(agencia);
+		System.out.println(saldo);
 	}
-
-	public int getNumero() {
-		return this.numero;
-	}
-}
-
-class Cliente {
-	String nome;
-	String endereco;
 }
